@@ -11,7 +11,7 @@ module sram #(parameter AW = 2,
     input nWE;
     input[AW-1:0] adr;
     input[DW-1:0] d_in;
-    output[DW-1:0] d_out;
+    output reg[DW-1:0] d_out;
     
     reg[DW-1:0] DataStorage[(1<<AW)-1:0];
     
@@ -20,7 +20,7 @@ module sram #(parameter AW = 2,
             d_out[DW-1:0] <= #5 DataStorage[adr][DW-1:0];
         end
         else begin
-            DataStorage[adr][DW-1:0] <= #5 din;
+            DataStorage[adr][DW-1:0] <= #5 d_in;
         end
     end
     
