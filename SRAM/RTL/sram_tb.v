@@ -23,6 +23,7 @@ module sram_tb;
 
     initial begin 
         fp = $fopen("../etc/initialData.txt", "r"); // �����
+
         if (fp) begin
             while (!$feof(fp)) begin
                 if(addr == 0) begin
